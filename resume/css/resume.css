@@ -1,0 +1,65 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+body .topNavBar{
+    padding: 20px 16px 20px 16px;
+}
+body nav{
+    padding-top: 7px;
+}
+
+body .topNavBar a.logo{
+    float: left;
+    text-decoration: none;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+.navigation{
+    list-style-type: none;
+    float: right;
+}
+
+body .topNavBar:after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+body .topNavBar a.logo{
+    color: #9a9da2;
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold","Arial";
+    font-size:30px;
+}
+body .topNavBar a.logo span.rs{
+    margin-right: 4px;
+    color: #e6686a;
+}
+body .navigation{
+    padding: 0;
+    margin: 0;
+}
+body .navigation li{
+    display: inline-block;
+    padding-right: 50px;
+}
+body .navigation li a{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #9a9da2;   
+    padding: 5px 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+}
+body .navigation li a:hover{
+    border-bottom: 3px solid #e6686a;
+}
+
+
+
