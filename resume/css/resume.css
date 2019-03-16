@@ -70,7 +70,7 @@ body .navigation li a:hover{
 }
 
 body .head_bg{
-    background: url(../img/rs-cover-2-2-1-1.jpg);
+    background: url(./../img/rs-cover-2-2-1-1.jpg);
     background-position: center center;
     background-size: cover;
 }
