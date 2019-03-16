@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="//at.alicdn.com/t/font_1091700_ve4nx3kj2t.js"></script>
+        <style type="text/css">
+            .icon {
+               width: 1em; height: 1em;
+               vertical-align: -0.15em;
+               fill: currentColor;
+               overflow: hidden;
+            }
+        </style>
         <link rel="stylesheet" href="css\resume.css">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     </head>
     <body>
         <div class="topNavBar">
-            <a class="logo" href="#"><span class="rs">RS</span>card</a>
-            <nav>
-                <ul class="navigation">
-                    <li><a href="#">关于</a></li>
-                    <li><a href="#">技能</a></li>
-                    <li><a href="#">作品</a></li>
-                    <li><a href="#">博客</a></li>
-                    <li><a href="#">日历</a></li>
-                    <li><a href="#">联系方式</a></li>
-                    <li><a href="#">其他</a></li>
-                </ul>
-            </nav>
+            <div class="topNavBar_inner clearfix">
+                <a class="logo" href="#"><span class="rs">RS</span>card</a>
+                <nav>
+                    <ul class="navigation">
+                        <li><a href="#">关于</a></li>
+                        <li><a href="#">技能</a></li>
+                        <li><a href="#">作品</a></li>
+                        <li><a href="#">博客</a></li>
+                        <li><a href="#">日历</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">其他</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+        <div class="head_bg">
+            <div class="mask"></div>
+        </div>
+
+        <main>
+            <div class="user">
+                <div class="usercard clearfix">
+                    <div class="photo"><img src="img/avatar.jpg" alt="photo of mine"></div>
+                    <div class="id_text">
+                        <span>Hello</span>
+                        <h1>JIANG XIAO</h1>
+                        <p>见习前端工程师</p>
+                        <hr>
+                        <dl class="clearfix">
+                            <dt>年龄</dt>
+                            <dd>23</dd>
+                            <dt>所在城市</dt>
+                            <dd>日本</dd>
+                            <dt>邮箱</dt>
+                            <dd>12345@gmail.com</dd>
+                            <dt>手机</dt>
+                            <dd>1234567</dd>
+                        </dl>
+                    </div>
+                </div>
+                <footer>
+                        <div class="contact">
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-github"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-weibo"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </footer>
+            </div>
+        </main>
     </body>
 </html>

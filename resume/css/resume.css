@@ -1,28 +1,14 @@
 body{
+    background-color: #efefef;;
+}
+
+*{
     padding: 0;
     margin: 0;
-    background-color: black;
 }
 
-body .topNavBar{
-    padding: 20px 16px 20px 16px;
-}
-body nav{
-    padding-top: 7px;
-}
 
-body .topNavBar a.logo{
-    float: left;
-    text-decoration: none;
-    padding-top: 3px;
-    padding-bottom: 4px;
-}
-.navigation{
-    list-style-type: none;
-    float: right;
-}
-
-body .topNavBar:after{
+.clearfix:after{
     content: "";
     display: block;
     clear: both;
@@ -30,10 +16,33 @@ body .topNavBar:after{
     visibility: hidden;
 }
 
+body .topNavBar{
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+}
+
+body .topNavBar_inner{
+    padding: 0 16px;
+}
+
+body nav{
+    padding-top: 9px;
+    float: right;
+}
+
+body .topNavBar a.logo{
+    float: left;
+    text-decoration: none;
+}
+.navigation{
+    list-style-type: none;
+}
+
 body .topNavBar a.logo{
     color: #9a9da2;
     font-weight: bold;
-    font-family: "Arial Rounded MT Bold","Arial";
+    font-family: 'Fredoka One', cursive;
     font-size:30px;
 }
 body .topNavBar a.logo span.rs{
@@ -46,14 +55,13 @@ body .navigation{
 }
 body .navigation li{
     display: inline-block;
-    padding-right: 50px;
+    padding-right: 30px;
 }
 body .navigation li a{
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     color: #9a9da2;   
-    padding: 5px 0;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
 }
@@ -61,5 +69,102 @@ body .navigation li a:hover{
     border-bottom: 3px solid #e6686a;
 }
 
+body .head_bg{
+    background: url(../img/rs-cover-2-2-1-1.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+body .mask{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 515px;
+}
 
+main .user{
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+main .usercard{
+    padding: 57px 50px 15px 50px;
+    background: #ffffff;
+}
+
+main .usercard .photo{
+    float: left;
+}
+
+main .usercard .id_text{
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+
+main .usercard .id_text span{
+    color: #ffffff;
+    background: #e6686a;
+    padding: 4px 16px;
+    line-height: 22px;
+    position: relative;
+    display: inline-block;
+}
+main .usercard .id_text span:after{
+    content: "";
+    border: 12px solid #e6686a;
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    border-top-width: 0px;
+    top: 28px;
+    left: 10px;
+}
+
+main .usercard .id_text h1{
+    margin-top: 18px;
+}
+
+main .usercard .id_text hr{
+    margin: 20px 0;
+}
+
+main .usercard .id_text dl dt,
+main .usercard .id_text dl dd{
+    float: left;
+    padding: 5px 0;
+}
+
+main .usercard .id_text dl dt{
+    font-weight: bold;
+    width: 30%;
+}
+
+main .usercard .id_text dl dd{
+    width: 70%;
+    color: #9da0a7;
+}
+
+main .user footer{
+    text-align: center;
+    background: #e6686a;
+}
+
+main .user footer .contact{
+    padding: 15px 0;
+}
+
+main .user footer .contact a{
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0 0;
+    margin: 0 15px;
+}
+
+main .user footer .contact a .icon{
+    fill: #fff;
+    font-size: 30px;
+}
 
