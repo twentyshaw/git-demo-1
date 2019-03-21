@@ -14,67 +14,113 @@
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     </head>
     <body>
-        <div class="topNavBar">
-            <div class="topNavBar_inner clearfix">
-                <a class="logo" href="#"><span class="rs">RS</span>card</a>
-                <nav>
-                    <ul class="navigation">
-                        <li><a href="#">关于</a></li>
-                        <li><a href="#">技能</a></li>
-                        <li><a href="#">作品</a></li>
-                        <li><a href="#">博客</a></li>
-                        <li><a href="#">日历</a></li>
-                        <li><a href="#">联系方式</a></li>
-                        <li><a href="#">其他</a></li>
-                    </ul>
-                </nav>
+        <header>
+            <div class="topNavBar">
+                <div class="topNavBar_inner clearfix">
+                    <a class="logo" href="#"><span class="rs">RS</span>card</a>
+                    <nav>
+                        <ul class="navigation">
+                            <li><a href="#">关于</a></li>
+                            <li><a href="#">技能</a></li>
+                            <li><a href="#">作品</a></li>
+                            <li><a href="#">博客</a></li>
+                            <li><a href="#">日历</a></li>
+                            <li><a href="#">联系方式</a></li>
+                            <li><a href="#">其他</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-        <div class="head_bg">
-            <div class="mask"></div>
-        </div>
-
-        <main>
-            <div class="user">
-                <div class="usercard clearfix">
-                    <div class="photo"><img src="./img/avatar.jpg" alt="photo of mine"></div>
-                    <div class="id_text">
-                        <span>Hello</span>
-                        <h1>JIANG XIAO</h1>
-                        <p>见习前端工程师</p>
-                        <hr>
-                        <dl class="clearfix">
-                            <dt>年龄</dt>
-                            <dd>23</dd>
-                            <dt>所在城市</dt>
-                            <dd>日本</dd>
-                            <dt>邮箱</dt>
-                            <dd>12345@gmail.com</dd>
-                            <dt>手机</dt>
-                            <dd>1234567</dd>
-                        </dl>
+            <div class="head_bg"></div>
+        </header>
+        <div class="contents_main">
+            <main>
+                <div class="user">
+                    <div class="user_inner">
+                        <div class="usercard clearfix">
+                            <div class="photo"><img src="./img/live-long-and-prosper-225.png" width="299" alt="photo of mine"></div>
+                            <div class="id_text">
+                                <span>Hello</span>
+                                <h1>JIANG XIAO</h1>
+                                <p>见习前端工程师</p>
+                                <hr>
+                                <dl class="clearfix">
+                                    <dt>年龄</dt>
+                                    <dd>23</dd>
+                                    <dt>所在城市</dt>
+                                    <dd>日本</dd>
+                                    <dt>邮箱</dt>
+                                    <dd>12345@gmail.com</dd>
+                                    <dt>手机</dt>
+                                    <dd>1234567</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <footer>
+                            <div class="contact">
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-github"></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-weibo"></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-twitter"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </footer>
                     </div>
                 </div>
-                <footer>
-                    <div class="contact">
-                        <a href="#">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-github"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-weibo"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-twitter"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </footer>
+                <p class="text_download">
+                    <a href="#" download="">DOWNLOAD RESUME</a>
+                </p>
+                <p class="intro">毕业于山东大学。现在日留学。网页设计实习中。</p>
+            </main>
+            <div class="sub_contents">
+                <div class="skills">
+                    <h2 class="sub_ttl">技能</h2>
+                    <ul class="clearfix">
+                        <li>HTML & CSS<span class="bar"></span></li>
+                        <li>JavaScript<span class="bar"></span></li>
+                        <li>WordPress<span class="bar"></span></li>
+                        <li>Photoshop<span class="bar"></span></li>
+                        <li>jQuery<span class="bar"></span></li>
+                        <li>Vue<span class="bar"></span></li>
+                    </ul>
+                </div>
+                <div class="portfolio">
+                    <h2 class="sub_ttl">作品集</h2>
+                    <ul>
+                        <li id="portall">所有</li>
+                        <li id="portframe">框架</li>
+                        <li id="portvallina">原生JS&CSS</li>
+                        <div id="portbar" class="select_bar state_1"></div>
+                    </ul>
+                </div>
+                <script>
+                    portall.onclick=function(){
+                        portbar.className="select_bar state_1"
+                    }
+                    portframe.onclick=function(){
+                        portbar.className="select_bar state_2"
+                    }
+                    portvallina.onclick=function(){
+                        portbar.className="select_bar state_3"
+                    }
+                </script>
+                <div class="pictureShow">
+                    <div class="pic_1"><img src="./img/1.jpg"></div>
+                    <div class="pic_2"><img src="./img/2.jpg"></div>
+                    <div class="pic_3"><img src="./img/3.jpg"></div>
+                </div>
             </div>
-        </main>
+        </div>
+        
     </body>
 </html>
