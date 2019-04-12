@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my nav</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header></header>
+	<main>
+		<div id="nav_inner"></div>
+	</main>
+	<footer></footer>
+	<script type="text/javascript">
+
+	//1.初始化数据
+    var hashA = init()
+    var keys = hashA["keys"]
+    var hash = hashA["hash"]
+
+    //2.生成键盘
+    generateKeyboard(keys,hash)
+
+    //3.监听用户动作
+    listenToUser(hash)
+
+
+    //工具函数
+    function tag(tagName){
+    	return document.createElement(tagName)
+    }
+
+    function creatEdit(buttonId){
+    	var edit = tag("button")
+		edit.textContent = "edit"
+		edit.id = buttonId
+		edit.onclick = function(xzkjcnxlkcjlk){
+			key2 = xzkjcnxlkcjlk.target
+			img2 = key2.previousSibling
+			key = key2.id
+			address = prompt("请输入一个网址")
+			hash[key] = address //hash变更
+			if (address) {
+			img2.src="http://" + address + "/favicon.ico"
+		    }else{
+			img2.src= "https://i.loli.net/2019/04/10/5cada72299667.png"
+		    }
+		    img2.onerror = function(xxx){
+		    	xxx.target.src = "https://i.loli.net/2019/04/10/5cada72299667.png"
+		    }
+		    	localStorage.setItem("storage", JSON.stringify(hash))
+		    }
+		return edit
+    }
+
+    function createImage(domain){
+    	var siteIcon=tag("img")
+		if (domain) {
+			siteIcon.src="http://" + domain + "/favicon.ico"
+		}else{
+			siteIcon.src= "https://i.loli.net/2019/04/10/5cada72299667.png"
+		}
+		siteIcon.onerror = function(xxx){
+			xxx.target.src = "https://i.loli.net/2019/04/10/5cada72299667.png"
+		}
+	    return siteIcon
+    }
+
+
+	function init(){
+		var keys = {
+			'0': {0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p','length':10},
+			'1': {0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l','length':9},
+			'2': {0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m','length':7},
+			'length': 3
+		}
+		var hash = {
+			'q': 'y.qq.com',
+			'w': 'weibo.com',
+			'e': 'ebay.com',
+			'r': 'rakuten.co.jp',
+			't': 'taobao.com',
+			'y': 'youtube.com',
+			'u': 'uniqlo.com',
+			'i': 'iconfont.cn',
+			'o': 'opera.com',
+			'p': 'pinterest.com',
+			'a': 'apple.tv',
+			's': 'sohu.com',
+			'z': 'zhihu.com',
+			'm': 'mcdonalds.com.cn'
+		}
+		//取出localstorage中的用户更改过的hash
+		var hashInLocalstorage = JSON.parse(localStorage.getItem("storage")||"null")
+		if (hashInLocalstorage) {hash=hashInLocalstorage}
+		return {
+			"keys" : keys,
+			"hash" : hash
+		}
+	}
+
+	function generateKeyboard(keys,hash){
+		index = 0
+		while(index<keys["length"]){
+			var line = tag("div")
+			line.className = "row"
+			nav_inner.appendChild(line)
+			index2 = 0
+			while(index2<keys[index].length){
+				span = tag("span")
+				span.textContent = keys[index][index2]
+				span.className = "text"
+
+				var edit =creatEdit(keys[index][index2])
+				var siteIcon = createImage(hash[keys[index][index2]])
+
+				var keyBd = tag("kbd")
+				keyBd.className = "keyBd"
+				
+				
+				keyBd.appendChild(span)
+				keyBd.appendChild(siteIcon)
+				keyBd.appendChild(edit) 
+				line.appendChild(keyBd)	
+				    
+				index2 = index2 + 1
+			}
+			index = index + 1
+		}		
+	}
+
+	function listenToUser(hash){
+		document.onkeypress = function(xzkjcnxlkcjlk){
+				onKey = xzkjcnxlkcjlk.key
+				website = hash[onKey]
+				window.open("http://" + website,"_blank")
+			}	
+	}
+
+	</script>
+</body>
+</html>

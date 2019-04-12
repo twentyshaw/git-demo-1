@@ -1,0 +1,76 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+body{
+	background: grey url(bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.keyBd{
+	text-transform: uppercase;
+	position: relative;
+	width: 50px;
+	height: 40px;
+	background: linear-gradient(to bottom,#292929 0%,#111111 100%);
+	border:1px solid #373737;
+	color: #C5C5C5;
+	border-radius: 6px;
+	box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020,0 3px 0 2px #080808;
+	display: inline-block;
+	font-size: 16px; 
+	font-family: Helvetica;	
+}
+
+main{
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+#nav_inner{
+	display: inline-block;
+	background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+#nav_inner div:nth-child(2){
+	margin-left: -22px;
+}
+#nav_inner div:nth-child(3){
+	margin-left: -80px;
+}
+
+.keyBd button{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: none;
+}
+.keyBd:hover button{
+	display: inline-block;
+}
+.row{
+	margin: 20px; 
+}
+.row .keyBd{
+	margin: 0 10px; 
+}
+
+.keyBd img{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 4px;
+	bottom: 2px;
+}
+
+.keyBd .text{
+	position: absolute;
+	left: 4px;
+	top: 2px;
+}
