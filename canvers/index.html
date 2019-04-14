@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvers</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="//at.alicdn.com/t/font_1140744_lbvghi8zp0n.js"></script>
+</head>
+<body>
+
+	<canvas id="draw" width="600" height="600"></canvas>
+	<div id="toolbox">
+		<svg id="pencil" class="active icon" aria-hidden="true"><use xlink:href="#icon-Pencil"></use></svg>
+		<svg id="eraser" class="icon" aria-hidden="true"><use xlink:href="#icon-Eraser-Tool"></use></svg>
+		<svg id="clearall" class="icon" aria-hidden="true"><use xlink:href="#icon-custom-clear"></use></svg>
+		<svg id="save" class="icon" aria-hidden="true"><use xlink:href="#icon-download"></use></svg>
+	</div>
+	<ul id="colorbox">
+		<li id="black" class="selected color"></li>
+		<li id="red" class="color"></li>
+		<li id="yellow" class="color"></li>
+		<li id="green" class="color"></li>
+	</ul>
+	<ul id="linesize">
+		<li id="thin" class="size choosen"></li>
+		<li id="thick" class="size"></li>
+	</ul>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

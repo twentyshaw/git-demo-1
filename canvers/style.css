@@ -1,0 +1,90 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body{
+	overflow: hidden;
+}
+
+.icon {
+       width: 1.5em; height: 1.5em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+       margin-right: 10px;
+       transition: all 0.3s;
+    }
+
+#draw{
+	background: #fff;
+}
+
+#toolbox{
+	position: fixed;
+	left: 15px;
+	top: 15px;
+}
+
+.active{
+	width: 2em; height: 2em;
+	fill: red;
+}
+
+#colorbox{
+	position: fixed;
+	top: 90px;
+	left: 15px;
+	width: 3em;
+}
+
+.color{
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin: 0 auto 15px;
+	box-shadow: 1px 1px 4px grey;
+	transition: all 0.3s; 
+}
+
+#black{
+	background-color: black;
+}
+#red{
+	background-color: red;
+}
+#yellow{
+	background-color: yellow;
+}
+#green{
+	background-color: green;
+}
+
+.color.selected{
+	transform: scale(1.2);
+}
+
+#linesize{
+	position: fixed;
+	right: 50px;
+    top: 30px;
+}
+
+.size{
+	width: 4em;
+	height: 1em;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+}
+
+#thin{
+	border-top: 1px solid black;
+}
+#thick{
+	border-top: 3px solid black;
+}
+
+.choosen{
+	transform: scale(1.2);
+}
