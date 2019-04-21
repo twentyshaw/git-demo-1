@@ -11,19 +11,37 @@
             }
         </style>
         <link rel="stylesheet" href="./css/resume.css">
+        <link rel="stylesheet" href="./css/loading.css">
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     </head>
     <body>
+        <div id="siteWelcome" class="site_welcome active">
+            <div class="loading"></div>
+        </div>
         <header>
-            <div class="topNavBar">
+            <div id="topNav" class="topNavBar">
                 <div class="topNavBar_inner clearfix">
                     <a class="logo" href="#"><span class="rs">RS</span>card</a>
                     <nav>
                         <ul class="navigation">
-                            <li><a href="#">关于</a></li>
-                            <li><a href="#">技能</a></li>
-                            <li><a href="#">作品</a></li>
-                            <li><a href="#">博客</a></li>
+                            <li><a href="#profile">关于</a></li>
+                            <li><a href="#skill">技能</a></li>
+                            <li class="sub_hold">
+                                <a href="#myPortfolio">作品</a>
+                                <ul class="sub_menu">
+                                    <li>作品1</li>
+                                    <li>作品2</li>
+                                    <li>作品3</li>
+                                </ul>
+                            </li>
+                            <li class="sub_hold">
+                                <a href="#">博客</a>
+                                <ul class="sub_menu">
+                                    <li>博客1</li>
+                                    <li>博客2</li>
+                                    <li>博客3</li>
+                                </ul>
+                            </li>
                             <li><a href="#">日历</a></li>
                             <li><a href="#">联系方式</a></li>
                             <li><a href="#">其他</a></li>
@@ -35,7 +53,7 @@
         </header>
         <div class="contents_main">
             <main>
-                <div class="user">
+                <div class="user" id="profile">
                     <div class="user_inner">
                         <div class="usercard clearfix">
                             <div class="photo"><img src="./img/live-long-and-prosper-225.png" width="299" alt="photo of mine"></div>
@@ -83,7 +101,7 @@
                 <p class="intro">毕业于山东大学。现在日留学。网页设计实习中。</p>
             </main>
             <div class="sub_contents">
-                <div class="skills">
+                <div class="skills" id="skill">
                     <h2 class="sub_ttl">技能</h2>
                     <ul class="clearfix">
                         <li>HTML & CSS<span class="bar"></span></li>
@@ -94,7 +112,7 @@
                         <li>Vue<span class="bar"></span></li>
                     </ul>
                 </div>
-                <div class="portfolio">
+                <div class="portfolio" id="myPortfolio">
                     <h2 class="sub_ttl">作品集</h2>
                     <ul>
                         <li id="portall">所有</li>
@@ -121,6 +139,41 @@
                 </div>
             </div>
         </div>
-        
+        <script type="text/javascript">
+            var cancel_a = function(){siteWelcome.classList.remove("active")}
+            setTimeout(cancel_a, 2000)
+
+            window.onscroll = function(){
+                if(window.scrollY > 0){
+                    topNav.classList.add("sticky")
+                }else{
+                    topNav.classList.remove("sticky")
+                }
+            }
+
+            let liTags = document.getElementsByClassName("sub_hold")
+            for (var i = 0; i < liTags.length; i++) {
+                liTags[i].onmouseenter =function(x){
+                    let list = x.currentTarget
+                    list.classList.add("active")
+                }
+                liTags[i].onmouseleave =function(x){
+                    let list = x.currentTarget
+                    list.classList.remove("active")
+                }
+            }
+
+            let aTags = document.querySelectorAll("nav > ul.navigation > li > a")
+            for (var i = 0; i < aTags.length; i++) {
+                aTags[i].onclick = function(x){
+                    x.preventDefault()
+                    let a = x.currentTarget
+                    let href = a.getAttribute("href")
+                    let element = document.querySelector(href)
+                    let top = element.offsetTop
+                    window.scrollTo(0, top - 100)
+                }
+            }
+        </script>
     </body>
 </html>
