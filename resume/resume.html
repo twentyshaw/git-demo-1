@@ -2,6 +2,7 @@
 <html>
     <head>
         <script src="//at.alicdn.com/t/font_1091700_ve4nx3kj2t.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
         <style type="text/css">
             .icon {
                width: 1em; height: 1em;
@@ -53,7 +54,7 @@
         </header>
         <div class="contents_main">
             <main>
-                <div class="user" id="profile">
+                <div data-x class="user" id="profile">
                     <div class="user_inner">
                         <div class="usercard clearfix">
                             <div class="photo"><img src="./img/live-long-and-prosper-225.png" width="299" alt="photo of mine"></div>
@@ -101,7 +102,7 @@
                 <p class="intro">毕业于山东大学。现在日留学。网页设计实习中。</p>
             </main>
             <div class="sub_contents">
-                <div class="skills" id="skill">
+                <div data-x class="skills" id="skill">
                     <h2 class="sub_ttl">技能</h2>
                     <ul class="clearfix">
                         <li>HTML & CSS<span class="bar"></span></li>
@@ -112,7 +113,7 @@
                         <li>Vue<span class="bar"></span></li>
                     </ul>
                 </div>
-                <div class="portfolio" id="myPortfolio">
+                <div data-x class="portfolio" id="myPortfolio">
                     <h2 class="sub_ttl">作品集</h2>
                     <ul>
                         <li id="portall">所有</li>
@@ -120,37 +121,58 @@
                         <li id="portvallina">原生JS&CSS</li>
                         <div id="portbar" class="select_bar state_1"></div>
                     </ul>
-                </div>
-                <script>
-                    portall.onclick=function(){
-                        portbar.className="select_bar state_1"
-                    }
-                    portframe.onclick=function(){
-                        portbar.className="select_bar state_2"
-                    }
-                    portvallina.onclick=function(){
-                        portbar.className="select_bar state_3"
-                    }
-                </script>
-                <div class="pictureShow">
-                    <div class="pic_1"><img src="./img/1.jpg"></div>
-                    <div class="pic_2"><img src="./img/2.jpg"></div>
-                    <div class="pic_3"><img src="./img/3.jpg"></div>
+                
+                    <script>
+                        portall.onclick=function(){
+                            portbar.className="select_bar state_1"
+                        }
+                        portframe.onclick=function(){
+                            portbar.className="select_bar state_2"
+                        }
+                        portvallina.onclick=function(){
+                            portbar.className="select_bar state_3"
+                        }
+                    </script>
+                    <div class="pictureShow">
+                        <div class="pic_1"><img src="./img/1.jpg"></div>
+                        <div class="pic_2"><img src="./img/2.jpg"></div>
+                        <div class="pic_3"><img src="./img/3.jpg"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
             var cancel_a = function(){siteWelcome.classList.remove("active")}
             setTimeout(cancel_a, 2000)
-
+            let specialTags = document.querySelectorAll("[data-x]")
+            for (var i = 0; i < specialTags.length; i++) {
+                specialTags[i].classList.add("lower")
+            }
+            setTimeout(scroll, 2000)
             window.onscroll = function(){
                 if(window.scrollY > 0){
                     topNav.classList.add("sticky")
                 }else{
                     topNav.classList.remove("sticky")
                 }
+                scroll()
             }
-
+            function scroll(){
+                let specialTags = document.querySelectorAll("[data-x]")
+                let minIndex = 0
+                for (var i = 0; i < specialTags.length; i++) {
+                    if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {minIndex = i}
+                }
+                specialTags[minIndex].classList.remove("lower")
+                let id = specialTags[minIndex].id
+                let a = document.querySelector('a[href="#' + id + '" ]')
+                let li = a.parentNode
+                let brothers = li.parentNode.children
+                for (var i = 0; i < brothers.length; i++) {
+                    brothers[i].classList.remove("highlight")
+                }
+                li.classList.add("highlight")
+            } 
             let liTags = document.getElementsByClassName("sub_hold")
             for (var i = 0; i < liTags.length; i++) {
                 liTags[i].onmouseenter =function(x){
@@ -162,7 +184,12 @@
                     list.classList.remove("active")
                 }
             }
-
+            
+            function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
+            }
+            requestAnimationFrame(animate);
             let aTags = document.querySelectorAll("nav > ul.navigation > li > a")
             for (var i = 0; i < aTags.length; i++) {
                 aTags[i].onclick = function(x){
@@ -171,9 +198,20 @@
                     let href = a.getAttribute("href")
                     let element = document.querySelector(href)
                     let top = element.offsetTop
-                    window.scrollTo(0, top - 100)
+                    let currentTop = window.scrollY
+                    let targetTop = top - 100
+                    var coords = {y: currentTop}; // Start at (0, 0)
+                    var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+                            .to({y: targetTop}, 500) // Move to (300, 200) in 1 second.
+                            .easing(TWEEN.Easing.Quadratic.In) // Use an easing function to make the animation smooth.
+                            .onUpdate(function() { // Called after tween.js updates 'coords'.
+                                // Move 'box' to the position described by 'coords' with a CSS translation.
+                                window.scrollTo(0,coords.y);//当onUpdate里面的函数被调用时，coords.y已经不是原来的值了，它会被函数更新
+                            })
+                    .start();
                 }
             }
+            
         </script>
     </body>
 </html>

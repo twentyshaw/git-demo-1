@@ -91,6 +91,20 @@ body .navigation li.active a:after{
     animation: menuSlide 0.3s;
 }
 
+/*滑动 菜单里的目标对象下边框高亮*/
+
+.highlight:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #e6686a;
+    height: 3px;
+    width: 100%;
+    animation: menuSlide 0.3s;
+}
+
 @keyframes menuSlide{
     0%{
         width: 0;
@@ -98,6 +112,15 @@ body .navigation li.active a:after{
     100%{
         width: 100%;
     }
+}
+
+/*块的缓慢进入*/
+[data-x].lower{
+    transform: translateY(200px);
+}
+[data-x]{
+    transform: translateY(0px);
+    transition: all .5s;
 }
 
 body .navigation li .sub_menu{
@@ -129,7 +152,6 @@ body .navigation li .sub_menu li{
         margin-right: 0%;
     }
 }
-
 
 body .head_bg{
     background: url(./../img/star_trek_1966_h_2015.jpg);
