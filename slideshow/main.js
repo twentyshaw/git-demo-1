@@ -19,7 +19,7 @@ $('#window').on('mouseenter',function(){
 	window.clearInterval(timeId)
 })
 $('#window').on('mouseleave',function(){
-	interval()
+	timeId = interval()
 })
 
 function interval(){
