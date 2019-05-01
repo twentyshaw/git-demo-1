@@ -7,14 +7,14 @@ for (var i = 0; i < allButtons.length; i++) {
 			transform:'translate(' + p + 'px)'
 		})
 		n = index
-		allButtons.eq(n % size).addClass('blue').siblings('.blue').removeClass('blue')
+		setButton(allButtons.eq(n))
 	})
 }
 
 var n = 0
-var size = allButtons.length
-setButton(allButtons.eq(n % size))
-var timeId = interval()
+size = allButtons.length
+allButtons.eq(n % size).trigger('click')
+timeId = interval()
 $('#window').on('mouseenter',function(){
 	window.clearInterval(timeId)
 })
@@ -25,10 +25,10 @@ $('#window').on('mouseleave',function(){
 function interval(){
 	return setInterval(()=>{
 		n += 1
-		setButton(allButtons.eq(n % size))
-    },1200)
+		allButtons.eq(n % size).trigger('click')
+    },2000)
 }
 
 function setButton($button){
-	$button.trigger('click').addClass('blue').siblings('.blue').removeClass('blue')
+	$button.addClass('blue').siblings('.blue').removeClass('blue')
 }
