@@ -1,8 +1,12 @@
 $(clickMe).on('click', function(){
-	$(popover).show()
-	setTimeout(function(){
-		$(document).one('click', function(){
-			$(popover).hide()
-		})
-	},0)
+	if(popover.style.display === 'block'){
+		$(popover).hide()
+	}else{
+		$(popover).show()
+		setTimeout(function(){
+			$(document).one('click', function(){
+				$(popover).hide()
+			})
+		},0)
+	}
 })
