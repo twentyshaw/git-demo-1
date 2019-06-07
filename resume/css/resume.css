@@ -442,5 +442,33 @@ body .contents_main .sub_contents .pictureShow .pic_3{
     right: 14px;
 }
 
+#messagebox{
+    margin-top: 108px;
+}
+#messagebox h3{
+    padding-left: 36px;
+}
+#messagebox ul{
+    width: 100%;
+    text-align: left;
+    margin: 10px auto 10px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    background: #f4f4f4;
+}
+#messagebox ul li{
+    padding: 16px 0;
+    border-bottom: 1px solid #ccc; 
+}
+#messagebox ul li:first-child{
+    padding-top: 0;
+}
+#messagebox ul li:last-child{
+    padding-bottom: 0;
+    border-bottom: none;
+}
+#messagebox form{
+    text-align: right;
+}
 
 

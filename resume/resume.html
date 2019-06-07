@@ -3,6 +3,8 @@
     <head>
         <script src="//at.alicdn.com/t/font_1091700_ve4nx3kj2t.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js"></script>
         <style type="text/css">
             .icon {
                width: 1em; height: 1em;
@@ -14,6 +16,7 @@
         <link rel="stylesheet" href="./css/resume.css">
         <link rel="stylesheet" href="./css/loading.css">
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     </head>
     <body>
         <div id="siteWelcome" class="site_welcome active">
@@ -45,7 +48,7 @@
                             </li>
                             <li><a href="#">日历</a></li>
                             <li><a href="#">联系方式</a></li>
-                            <li><a href="#">其他</a></li>
+                            <li><a href="#messagebox">留言板</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -133,11 +136,55 @@
                             portbar.className="select_bar state_3"
                         }
                     </script>
-                    <div class="pictureShow">
-                        <div class="pic_1"><img src="./img/1.jpg"></div>
-                        <div class="pic_2"><img src="./img/2.jpg"></div>
-                        <div class="pic_3"><img src="./img/3.jpg"></div>
+                    <!--轮播-->
+                    <style type="text/css">
+                        .swiper-container {
+                            width: 600px;
+                            height: 300px;
+                            margin-top: 30px;
+                        }
+                        .swiper-slide{
+                            text-align: center;
+                        }
+                    </style>
+                    <div class="swiper-container">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><img src="./img/nav.jpg" width="500"></div>
+                            <div class="swiper-slide"><img src="./img/canvas.jpg" width="500"></div>
+                            <div class="swiper-slide"><img src="./img/slideshow.jpg" width="500"></div>
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
                     </div>
+                    <script>
+                      var mySwiper = new Swiper ('.swiper-container', {
+                        // Optional parameters
+                        loop: true,
+
+                        // Navigation arrows
+                        navigation: {
+                          nextEl: '.swiper-button-next',
+                          prevEl: '.swiper-button-prev',
+                        },
+                      })
+                    </script>
+                </div>
+                <div id="messagebox">
+                    <h2 class="sub_ttl">留言</h2>
+                    <h3>All Comments</h3>
+                    <ul id="commentList"> 
+                    </ul>
+                    <form id="postMessageForm">
+                        <label>用户名：</label>
+                        <input type="text" name="username">
+                        <label>评论：</label>
+                        <input type="text" name="content">
+                        <input type="submit" value="提交">
+                    </form>
                 </div>
             </div>
         </div>
@@ -213,5 +260,6 @@
             }
             
         </script>
+        <script type="text/javascript" src="message.js"></script>
     </body>
 </html>
