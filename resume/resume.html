@@ -5,14 +5,6 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js"></script>
-        <style type="text/css">
-            .icon {
-               width: 1em; height: 1em;
-               vertical-align: -0.15em;
-               fill: currentColor;
-               overflow: hidden;
-            }
-        </style>
         <link rel="stylesheet" href="./css/resume.css">
         <link rel="stylesheet" href="./css/loading.css">
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
@@ -26,7 +18,7 @@
             <div id="topNav" class="topNavBar">
                 <div class="topNavBar_inner clearfix">
                     <a class="logo" href="#"><span class="rs">RS</span>card</a>
-                    <nav>
+                    <nav class="menu">
                         <ul class="navigation">
                             <li><a href="#profile">关于</a></li>
                             <li><a href="#skill">技能</a></li>
@@ -137,17 +129,7 @@
                         }
                     </script>
                     <!--轮播-->
-                    <style type="text/css">
-                        .swiper-container {
-                            width: 600px;
-                            height: 300px;
-                            margin-top: 30px;
-                        }
-                        .swiper-slide{
-                            text-align: center;
-                        }
-                    </style>
-                    <div class="swiper-container">
+                    <div id="mySwiper" class="swiper-container">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
@@ -160,18 +142,6 @@
                         <div class="swiper-button-next"></div>
 
                     </div>
-                    <script>
-                      var mySwiper = new Swiper ('.swiper-container', {
-                        // Optional parameters
-                        loop: true,
-
-                        // Navigation arrows
-                        navigation: {
-                          nextEl: '.swiper-button-next',
-                          prevEl: '.swiper-button-prev',
-                        },
-                      })
-                    </script>
                 </div>
                 <div id="messagebox">
                     <h2 class="sub_ttl">留言</h2>
@@ -188,78 +158,12 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            var cancel_a = function(){siteWelcome.classList.remove("active")}
-            setTimeout(cancel_a, 2000)
-            let specialTags = document.querySelectorAll("[data-x]")
-            for (var i = 0; i < specialTags.length; i++) {
-                specialTags[i].classList.add("lower")
-            }
-            setTimeout(scroll, 2000)
-            window.onscroll = function(){
-                if(window.scrollY > 0){
-                    topNav.classList.add("sticky")
-                }else{
-                    topNav.classList.remove("sticky")
-                }
-                scroll()
-            }
-            function scroll(){
-                let specialTags = document.querySelectorAll("[data-x]")
-                let minIndex = 0
-                for (var i = 0; i < specialTags.length; i++) {
-                    if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {minIndex = i}
-                }
-                specialTags[minIndex].classList.remove("lower")
-                let id = specialTags[minIndex].id
-                let a = document.querySelector('a[href="#' + id + '" ]')
-                let li = a.parentNode
-                let brothers = li.parentNode.children
-                for (var i = 0; i < brothers.length; i++) {
-                    brothers[i].classList.remove("highlight")
-                }
-                li.classList.add("highlight")
-            } 
-            let liTags = document.getElementsByClassName("sub_hold")
-            for (var i = 0; i < liTags.length; i++) {
-                liTags[i].onmouseenter =function(x){
-                    let list = x.currentTarget
-                    list.classList.add("active")
-                }
-                liTags[i].onmouseleave =function(x){
-                    let list = x.currentTarget
-                    list.classList.remove("active")
-                }
-            }
-            
-            function animate(time) {
-                requestAnimationFrame(animate);
-                TWEEN.update(time);
-            }
-            requestAnimationFrame(animate);
-            let aTags = document.querySelectorAll("nav > ul.navigation > li > a")
-            for (var i = 0; i < aTags.length; i++) {
-                aTags[i].onclick = function(x){
-                    x.preventDefault()
-                    let a = x.currentTarget
-                    let href = a.getAttribute("href")
-                    let element = document.querySelector(href)
-                    let top = element.offsetTop
-                    let currentTop = window.scrollY
-                    let targetTop = top - 100
-                    var coords = {y: currentTop}; // Start at (0, 0)
-                    var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-                            .to({y: targetTop}, 500) // Move to (300, 200) in 1 second.
-                            .easing(TWEEN.Easing.Quadratic.In) // Use an easing function to make the animation smooth.
-                            .onUpdate(function() { // Called after tween.js updates 'coords'.
-                                // Move 'box' to the position described by 'coords' with a CSS translation.
-                                window.scrollTo(0,coords.y);//当onUpdate里面的函数被调用时，coords.y已经不是原来的值了，它会被函数更新
-                            })
-                    .start();
-                }
-            }
-            
-        </script>
-        <script type="text/javascript" src="message.js"></script>
+        <script type="text/javascript" src="./js/welcome-animation.js"></script>
+        <script type="text/javascript" src="./js/div-slowly-slide.js"></script>
+        <script type="text/javascript" src="./js/topbar-sticky.js"></script>
+        <script type="text/javascript" src="./js/submenu-show.js"></script>
+        <script type="text/javascript" src="./js/onclick-slideto-Div.js"></script>
+        <script type="text/javascript" src="./js/init-swiper.js"></script>
+        <script type="text/javascript" src="./js/message.js"></script>
     </body>
 </html>

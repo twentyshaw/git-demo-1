@@ -18,6 +18,13 @@ body{
     visibility: hidden;
 }
 
+.icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 
 body .topNavBar{
     padding: 20px 0;
@@ -442,6 +449,16 @@ body .contents_main .sub_contents .pictureShow .pic_3{
     right: 14px;
 }
 
+
+body .swiper-container{
+    width: 600px;
+    height: 300px;
+    margin-top: 30px;
+}
+.swiper-slide{
+    text-align: center;
+}
+
 #messagebox{
     margin-top: 108px;
 }
@@ -470,5 +487,7 @@ body .contents_main .sub_contents .pictureShow .pic_3{
 #messagebox form{
     text-align: right;
 }
+
+
 
 
